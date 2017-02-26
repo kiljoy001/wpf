@@ -34,6 +34,7 @@ namespace wpf
                     newUser.Parameters.Add("@czip", SqlDbType.NVarChar, 6).Value = czip;
                     newUser.Parameters.Add("@cstate", SqlDbType.NVarChar, 2).Value = cstate;
                     newUser.Parameters.Add("@city", SqlDbType.NVarChar, 60).Value = city;
+
                 }
                 catch (SqlException se)
                 {

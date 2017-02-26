@@ -23,5 +23,17 @@ namespace wpf
         {
             InitializeComponent();
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Products product = new Products();
+            product.Show();
+            this.Close();
+        }
+
+        private void Submit_newproduct_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

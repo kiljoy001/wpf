@@ -30,12 +30,11 @@ namespace wpf
         }
         private async Task process_login()
         {
+            string password_text = password.Password;
+            string email = login.Text;
+        
             Task process = Task.Factory.StartNew(() =>
             {
-                
-                
-                    password.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate { password_text = password.Password; });
-                    login.Dispatcher.BeginInvoke(DispatcherPriority.Send, (ThreadStart)delegate { email = login.Text; });
                 checkEmail input = new checkEmail(email);
                 if (input.check_if_correct(email))
                 {
@@ -52,31 +51,36 @@ namespace wpf
                         });
                         
                     }
+                    else { MessageBox.Show($"Login is incorrect. Please try again!"); }
                 }
+                else { MessageBox.Show($"Login is incorrect. Please try again!"); }
             });
             await process;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            checkEmail input = new checkEmail(login.Text);
-            if (input.check_if_correct(login.Text))
-            {
-                getHash hpass = new getHash(login.Text);
+            await process_login();
+            
+            //Sync version 
+            //checkEmail input = new checkEmail(login.Text);
+            //if (input.check_if_correct(login.Text))
+            //{
+            //    getHash hpass = new getHash(login.Text);
 
-                if (BCrypt.Net.BCrypt.Verify(password.Password, hpass.hashValue))
-                {
-                    Application.Current.Dispatcher.Invoke((Action)delegate {
+            //    if (BCrypt.Net.BCrypt.Verify(password.Password, hpass.hashValue))
+            //    {
+            //        Application.Current.Dispatcher.Invoke((Action)delegate {
 
-                        //your code
-                        Products window_product = new Products();
-                        window_product.Show();
-                        this.Close();
-                    });
+            //            //your code
+            //            Products window_product = new Products();
+            //            window_product.Show();
+            //            this.Close();
+            //        });
 
-                }
-            }
-            else { MessageBox.Show($"Login is incorrect. Please try again!"); }
+            //    }
+            //}
+            //else { MessageBox.Show($"Login is incorrect. Please try again!"); }
         }
     }
 }
