@@ -40,9 +40,12 @@ namespace wpf
             double.TryParse(pPrice.Text, out validate_price);
             if ( validate_price == 0|| validate_amount == 0  )
             {
-                MessageBox.Show($"Please check your values for price and amount.", $"Entries that are not numbers will be saved as 0 in the database. You have entered Amount: {pAmount.Text} Price{pPrice.Text}If you have entered 0 as the amount, you can ignore this message.",MessageBoxButton.OK,MessageBoxImage.Exclamation);
+                MessageBox.Show($"Entries that are not numbers will be saved as 0 in the database. You have entered Amount: {pAmount.Text} Price: {pPrice.Text}\nIf you have entered 0 as the amount, you can ignore this message.", $"Please check your values for price and amount." ,MessageBoxButton.OK,MessageBoxImage.Exclamation);
             }
             await add_product(pName.Text, validate_amount, validate_price);
+            pName.Clear();
+            pAmount.Clear();
+            pPrice.Clear();
         }
         private async Task  add_product(string name, int amount, double price)
         {
