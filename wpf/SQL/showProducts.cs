@@ -23,6 +23,10 @@ namespace wpf.SQL
                 {
                     selectAll.Connection = dbConnect;
                 }
+                catch
+                {
+
+                }
             }
         }
     }

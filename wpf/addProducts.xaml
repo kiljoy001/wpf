@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Invo" Height="350" Width="525">
     <Grid Background="LightBlue">
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="200" Height="168">
                 <Label x:Name="labelPName" Content="Product Name" />
-                <TextBox x:Name="pName" />
+            <TextBox x:Name="pName" MaxLength="100"/>
                 <Label x:Name="labelPAmount" Content="Amount" />
-                <TextBox x:Name="pAmount" />
+            <TextBox x:Name="pAmount" MaxLength="60"/>
                 <Label x:Name="labelPPrice" Content="Wholesale Price" />
-                <TextBox x:Name="pPrice" />
+            <TextBox x:Name="pPrice" MaxLength="60"/>
             </StackPanel>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin=" 10,10">
             <Button x:Name="Submit_newproduct" Content="Submit" Width="50" Foreground="white" Background="Orange" Margin="0,0,25,0" Click="Submit_newproduct_Click" />

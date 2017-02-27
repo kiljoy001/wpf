@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Invo" Height="350" Width="525">
     <Grid Background="LightBlue">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"  >
             <Label>Login</Label>
-            <TextBox x:Name="login"  />
+            <TextBox x:Name="login"  MaxLength="60"/>
             <Label>Password</Label>
-            <PasswordBox x:Name="password" Width="152"  />
+            <PasswordBox x:Name="password" Width="152" MaxLength="60"  />
 
             <Button HorizontalAlignment="Right" Background="Orange" Foreground="White" Content="Sign In" Margin="5" Width="51" Click="Button_Click" />
         </StackPanel>
