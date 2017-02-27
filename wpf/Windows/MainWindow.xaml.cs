@@ -38,6 +38,8 @@ namespace wpf
                 checkEmail input = new checkEmail(email);
                 if (input.check_if_correct(email))
                 {
+                    //Need to add presisent setting so that user login can be retrieved at a later point
+                    Properties.Settings.Default.user_login = email;
                     getHash hpass = new getHash(email);
                     
                     if(BCrypt.Net.BCrypt.Verify(password_text,hpass.hashValue))
