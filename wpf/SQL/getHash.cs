@@ -30,6 +30,10 @@ namespace wpf
                     {
                         while (return_value.Read()) { hash = return_value.GetString(0); }
                     }
+                    else
+                    {
+                        throw new ArgumentNullException();
+                    }
                 }
                 catch (SqlException se)
                 {

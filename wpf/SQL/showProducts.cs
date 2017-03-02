@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows;
 
 namespace wpf.SQL
 {
@@ -25,10 +26,26 @@ namespace wpf.SQL
                     selectAll.Connection = dbConnect;
                     selectAll.CommandType = CommandType.Text;
                     selectAll.CommandText = selectData;
-                }
-                catch
-                {
+                    SqlDataTable return_value = selectAll.ExecuteReader();
+                    if(return_value.HasRows)
+                    {
+                        while(return_value.Read())
+                        {
 
+                        }
+                    }
+                    else
+                    {
+                        throw new ArgumentNullException();
+                    }
+                }
+                catch(SqlException se)
+                {
+                    MessageBox.Show($"Error: {se.ToString()}", $"An SQL related error has occured.");
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show($"Error: {e.ToString()}\n{e.GetType()}", $"An {e.GetType()} error has occured.");
                 }
             }
         }
