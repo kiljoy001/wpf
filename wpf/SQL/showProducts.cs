@@ -24,20 +24,11 @@ namespace wpf.SQL
                 try
                 {
                     selectAll.Connection = dbConnect;
-                    selectAll.CommandType = CommandType.Text;
-                    selectAll.CommandText = selectData;
-                    SqlDataTable return_value = selectAll.ExecuteReader();
-                    if(return_value.HasRows)
-                    {
-                        while(return_value.Read())
-                        {
-
-                        }
-                    }
-                    else
-                    {
-                        throw new ArgumentNullException();
-                    }
+                    //selectAll.CommandType = CommandType.Text;
+                    //selectAll.CommandText = selectData;
+                    SqlDataAdapter return_value = new SqlDataAdapter(selectData, dbConnect);
+                    DataSet data_container = new DataSet();
+                    return_value.Fill(data_container, "Products");
                 }
                 catch(SqlException se)
                 {
