@@ -11,8 +11,11 @@ namespace wpf.SQL
 {
     class showProducts : AbstractedSQL
     {
+        private DataSet products_fetch;
+
         public showProducts()
         {
+
             string selectData = "[product_name], [product_units] ,[product_price], [product_enable] FROM[dbo].[Product]";
             using (SqlConnection dbConnect = new SqlConnection())
             {
@@ -27,18 +30,20 @@ namespace wpf.SQL
                     //selectAll.CommandType = CommandType.Text;
                     //selectAll.CommandText = selectData;
                     SqlDataAdapter return_value = new SqlDataAdapter(selectData, dbConnect);
-                    DataSet data_container = new DataSet();
-                    return_value.Fill(data_container, "Products");
+                    products_fetch = new DataSet();
+                    return_value.Fill(products_fetch, "Products");
                 }
-                catch(SqlException se)
+                catch (SqlException se)
                 {
                     MessageBox.Show($"Error: {se.ToString()}", $"An SQL related error has occured.");
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     MessageBox.Show($"Error: {e.ToString()}\n{e.GetType()}", $"An {e.GetType()} error has occured.");
                 }
             }
         }
+                public DataSet result { get { return products_fetch; } }
+        }
     }
-}
+
