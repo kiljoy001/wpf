@@ -21,14 +21,12 @@ namespace wpf.SQL
             {
                 dbConnect.ConnectionString = connection;
                 dbConnect.Open();
-                SqlTransaction trans = dbConnect.BeginTransaction();
-                SqlCommand selectAll = dbConnect.CreateCommand();
-                selectAll.Transaction = trans;
+                SqlCommand selectAll = new SqlCommand(selectData);
                 try
                 {
                     selectAll.Connection = dbConnect;
-                    //selectAll.CommandType = CommandType.Text;
-                    //selectAll.CommandText = selectData;
+                    selectAll.CommandType = CommandType.Text;
+                    selectAll.CommandText = selectData;
                     SqlDataAdapter return_value = new SqlDataAdapter(selectData, dbConnect);
                     products_fetch = new DataSet();
                     return_value.Fill(products_fetch, "Products");
