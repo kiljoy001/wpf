@@ -71,6 +71,14 @@
     <Compile Include="SQL\getHash.cs" />
     <Compile Include="SQL\insertProduct.cs" />
     <Compile Include="SQL\insertUser.cs" />
+    <Compile Include="SQL\model_table.cs">
+      <DependentUpon>model_table.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\model_table.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>model_table.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SQL\showProducts.cs" />
     <Page Include="addProducts.xaml">
       <SubType>Designer</SubType>
@@ -117,6 +125,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="SQL\model_table.xsc">
+      <DependentUpon>model_table.xsd</DependentUpon>
+    </None>
+    <None Include="SQL\model_table.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>model_table.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SQL\model_table.xss">
+      <DependentUpon>model_table.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

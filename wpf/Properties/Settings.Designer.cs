@@ -34,5 +34,16 @@ namespace wpf.Properties {
                 this["user_login"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=webappdb-csi291.database.windows.net;Initial Catalog=model_db;Persist" +
+            " Security Info=True;User ID=webappdb_csi291;Password=GKLq4AqS9NadbUJ9qCbHemkc")]
+        public string model_dbConnectionString {
+            get {
+                return ((string)(this["model_dbConnectionString"]));
+            }
+        }
     }
 }

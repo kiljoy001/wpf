@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace wpf.SQL
 {
@@ -16,7 +17,7 @@ namespace wpf.SQL
         public showProducts()
         {
 
-            string selectData = "[product_name], [product_units] ,[product_price], [product_enable] FROM[dbo].[Product]";
+            string selectData = "Select [product_name], [product_units] ,[product_price], [product_enable] FROM[dbo].[Product]";
             using (SqlConnection dbConnect = new SqlConnection())
             {
                 dbConnect.ConnectionString = connection;
@@ -27,9 +28,19 @@ namespace wpf.SQL
                     selectAll.Connection = dbConnect;
                     selectAll.CommandType = CommandType.Text;
                     selectAll.CommandText = selectData;
-                    SqlDataAdapter return_value = new SqlDataAdapter(selectData, dbConnect);
-                    products_fetch = new DataSet();
-                    return_value.Fill(products_fetch, "Products");
+                    SqlDataAdapter adapter = new SqlDataAdapter(selectAll);
+                    adapter.SelectCommand = selectAll;
+                    model_table result = new model_table();
+                    adapter.Fill(result,"Product");
+
+                    //if(return_value.HasRows)
+                    //{
+                    //    while
+                    //        (return_value.Read())
+                    //    {
+                            
+                    //    }
+                    //}
                 }
                 catch (SqlException se)
                 {

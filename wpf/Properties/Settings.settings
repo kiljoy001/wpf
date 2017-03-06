@@ -5,5 +5,13 @@
     <Setting Name="user_login" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="model_dbConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=webappdb-csi291.database.windows.net;Initial Catalog=model_db;Persist Security Info=True;User ID=webappdb_csi291;Password=GKLq4AqS9NadbUJ9qCbHemkc&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=webappdb-csi291.database.windows.net;Initial Catalog=model_db;Persist Security Info=True;User ID=webappdb_csi291;Password=GKLq4AqS9NadbUJ9qCbHemkc</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
