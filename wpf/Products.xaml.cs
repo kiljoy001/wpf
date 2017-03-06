@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using wpf.SQL;
 
 namespace wpf
 {
@@ -22,6 +24,8 @@ namespace wpf
         public Products()
         {
             InitializeComponent();
+            showProducts get_data = new showProducts();
+            DataSet data = get_data.result;
         }
 
         private void addProduct_Click(object sender, RoutedEventArgs e)
