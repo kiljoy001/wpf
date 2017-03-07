@@ -27,7 +27,13 @@ namespace wpf
             showProducts get_data = new showProducts();
             if (get_data.result != null)
             {
-
+                foreach(product item in get_data.result)
+                { //check to make sure that the value is not false
+                    if (item.Show_Item)
+                    {
+                        listView.Items.Add(new product { Product_name = item.Product_name, Number = item.Number, Amount = item.Amount });
+                    }
+                }
             }
         }
 
@@ -36,6 +42,12 @@ namespace wpf
             addProducts insert_product = new addProducts();
             insert_product.Show();
             this.Close();
+        }
+
+        private void removeProduct_Click(object sender, RoutedEventArgs e)
+        {
+            var item = (sender as FrameworkElement).DataContext;
+            int index = listView.Items.IndexOf(item);
         }
     }
 }

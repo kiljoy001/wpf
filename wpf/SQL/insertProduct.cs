@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
+//inserts product into database, uses a stored procedure called insertProduct
 namespace wpf.SQL
 {
     class insertProduct : AbstractedSQL

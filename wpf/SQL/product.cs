@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//simple model class for storing data to get it to the right place for the application to display in the products section
 namespace wpf.SQL
 {
     class product

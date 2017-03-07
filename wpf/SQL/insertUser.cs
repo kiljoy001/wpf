@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Windows;
-
+//untested abstraction
 namespace wpf
 {
     public class insertUser : AbstractedSQL

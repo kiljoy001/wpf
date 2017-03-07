@@ -5,7 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
-
+//abstracted class that collects hash from the database for logins
 namespace wpf
 {
     public class getHash : AbstractedSQL
