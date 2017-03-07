@@ -17,7 +17,7 @@ namespace wpf.SQL
         public showProducts()
         {
 
-            string selectData = "Select [product_name], [product_units] ,[product_price], [product_enable] FROM[dbo].[Product]";
+            string selectData = "Select [product_name], [product_units] ,[product_price], [product_enable], [product_guid] FROM [dbo].[Product]";
             using (SqlConnection dbConnect = new SqlConnection())
             {
                 dbConnect.ConnectionString = connection;
@@ -40,6 +40,7 @@ namespace wpf.SQL
                                 temp.Number = (int)return_value["product_units"];
                                 temp.Amount = decimal.Parse(return_value["product_price"].ToString());
                                 temp.Show_Item = (bool)return_value["product_enable"];
+                                temp.ID = (Guid)return_value["product_guid"];
                                 products_fetch.Add(temp);
                             }
                         }

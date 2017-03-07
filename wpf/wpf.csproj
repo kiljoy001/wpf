@@ -68,6 +68,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="SQL\AbstractedSQL.cs" />
     <Compile Include="SQL\checkEmail.cs" />
+    <Compile Include="SQL\disable_product.cs" />
     <Compile Include="SQL\getHash.cs" />
     <Compile Include="SQL\insertProduct.cs" />
     <Compile Include="SQL\insertUser.cs" />

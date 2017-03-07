@@ -21,10 +21,11 @@ namespace wpf
     /// </summary>
     public partial class Products : Window
     {
+        showProducts get_data = new showProducts();
         public Products()
         {
             InitializeComponent();
-            showProducts get_data = new showProducts();
+            
             if (get_data.result != null)
             {
                 foreach(product item in get_data.result)
@@ -46,8 +47,21 @@ namespace wpf
 
         private void removeProduct_Click(object sender, RoutedEventArgs e)
         {
-            var item = (sender as FrameworkElement).DataContext;
-            int index = listView.Items.IndexOf(item);
+            int index = listView.SelectedIndex;
+            product selected = get_data.result[index];
+            if (selected != null)
+            {
+                disable_product remove = new disable_product(selected.ID, Properties.Settings.Default.user_login);
+                listView.Items.Clear();
+                foreach (product item in get_data.result)
+                { //check to make sure that the value is not false
+                    if (item.Show_Item)
+                    {
+                        listView.Items.Add(new product { Product_name = item.Product_name, Number = item.Number, Amount = item.Amount });
+                    }
+                }
+            }
+
         }
     }
 }
