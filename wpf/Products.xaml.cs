@@ -25,7 +25,10 @@ namespace wpf
         {
             InitializeComponent();
             showProducts get_data = new showProducts();
-            DataSet data = get_data.result;
+            if (get_data.result != null)
+            {
+
+            }
         }
 
         private void addProduct_Click(object sender, RoutedEventArgs e)

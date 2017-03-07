@@ -12,7 +12,7 @@ namespace wpf.SQL
 {
     class showProducts : AbstractedSQL
     {
-        private DataSet products_fetch;
+        private List<product> products_fetch = new List<product>();
 
         public showProducts()
         {
@@ -28,19 +28,22 @@ namespace wpf.SQL
                     selectAll.Connection = dbConnect;
                     selectAll.CommandType = CommandType.Text;
                     selectAll.CommandText = selectData;
-                    SqlDataAdapter adapter = new SqlDataAdapter(selectAll);
-                    adapter.SelectCommand = selectAll;
-                    model_table result = new model_table();
-                    adapter.Fill(result,"Product");
-
-                    //if(return_value.HasRows)
-                    //{
-                    //    while
-                    //        (return_value.Read())
-                    //    {
-                            
-                    //    }
-                    //}
+                    using (SqlDataReader return_value = selectAll.ExecuteReader(CommandBehavior.SingleResult))
+                    {
+                        if (return_value.HasRows)
+                        {
+                              
+                            while(return_value.Read())
+                            {
+                                product temp = new product();
+                                temp.Product_name = return_value["product_name"].ToString();
+                                temp.Number = (int)return_value["product_units"];
+                                temp.Amount = decimal.Parse(return_value["product_price"].ToString());
+                                temp.Show_Item = (bool)return_value["product_enable"];
+                                products_fetch.Add(temp);
+                            }
+                        }
+                    }
                 }
                 catch (SqlException se)
                 {
@@ -52,7 +55,7 @@ namespace wpf.SQL
                 }
             }
         }
-                public DataSet result { get { return products_fetch; } }
+                public List<product> result { get { return products_fetch; } }
         }
     }
 
