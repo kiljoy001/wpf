@@ -31,6 +31,7 @@ namespace wpf.SQL
                     Guid pGuid = Guid.NewGuid();
                     newProduct.Parameters.Add("@pGUID", SqlDbType.UniqueIdentifier).Value = pGuid;
                     newProduct.Parameters.Add("@login", SqlDbType.NVarChar, 60).Value = Properties.Settings.Default.user_login;
+                    newProduct.Parameters.Add("@show", SqlDbType.Bit).Value = 1;
                     newProduct.ExecuteScalar();
                     trans.Commit();
                 }
