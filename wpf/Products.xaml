@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Invo" Height="350" Width="525">
-    <Grid Background="LightBlue">
-        <Label x:Name="products" Content="Products"  HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
+    <Grid Background="#2B3E50">
         <StackPanel>
-            <Button x:Name="addProduct" Content="Add A Product" Background="Orange" Foreground="White" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="100" Click="addProduct_Click"/>
-            <Button x:Name="removeProduct" Content="Remove A Product" Background="Orange" Foreground="White" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="removeProduct_Click"/>
+            <Label x:Name="products" Content="Products"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Foreground="White" FontSize="24" RenderTransformOrigin="-0.843,0.791"/>
+            <Button x:Name="addProduct" Content="Add A Product" Background="#FFDF691A" Foreground="White" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="100" Click="addProduct_Click" RenderTransformOrigin="0.501,2.705"/>
+            <Button x:Name="removeProduct" Content="Remove A Product" Background="#FFDF691A" Foreground="White" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="removeProduct_Click"/>
         </StackPanel>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="299" Margin="117,10,0,0" VerticalAlignment="Top" Width="390">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="299" Margin="117,10,0,0" VerticalAlignment="Top" Width="390" Background="#FF8D9DAD" SelectionChanged="listView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Product Name" Width="140" DisplayMemberBinding="{Binding Product_name}"/>
