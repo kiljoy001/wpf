@@ -6,16 +6,26 @@
         xmlns:local="clr-namespace:wpf"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Invo" Height="350" Width="525">
-    <Grid Background="#2B3E50" RenderTransformOrigin="0.351,0.571">
-        <!-- <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"  > -->
-        <TextBox x:Name="login"  MaxLength="60" Margin="334,173,22,122" RenderTransformOrigin="0.505,0.543" TextChanged="login_TextChanged"/>
-        <Label Foreground="White" Margin="259,173,188,122">Password</Label>
-        <Label Foreground="White" Content="Login" Margin="10,173,456,122"/>
-        <PasswordBox x:Name="password" MaxLength="60" Margin="61,173,298,122"  />
-
-        <Button HorizontalAlignment="Right" Background="#FFDF691A" Foreground="White" Content="Sign In" Margin="0,246,22,47" Width="126" Click="Button_Click" />
-        <Label Content="INVO" HorizontalAlignment="Left" Margin="205,22,0,0" VerticalAlignment="Top" Foreground="#FFDF691A" FontSize="48"/>
-        <!-- </StackPanel> -->
+        Title="Invo" Height="417" Width="668.978">
+    <Grid Background="#2B3E50"  ShowGridLines="True">
+        <TextBox x:Name="login"  MaxLength="60" Margin="99,173,417,0" Height="auto" VerticalAlignment="Top" />
+        <Label Foreground="White" Margin="300,167,0,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100">Password</Label>
+        <Label Foreground="White" Content="Login" Margin="10,167,0,0" HorizontalAlignment="Left" Width="70" Height="32" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="password" MaxLength="60" Margin="405,173,0,0" HorizontalAlignment="Left" Width="165" Height="auto" VerticalAlignment="Top"  />
+        <Button Background="#FFDF691A" Foreground="White" Content="Sign In" Margin="440,332,0,0" Click="Button_Click" HorizontalAlignment="Left" Width="130" Height="33" VerticalAlignment="Top">
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">
+                            Click To Sign In
+                        </TextBlock>
+                        <TextBlock>
+                            If you forgot your login, please reset it at http://invo.net
+                        </TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Label Content="INVO" HorizontalAlignment="Left" Margin="276,10,0,0" VerticalAlignment="Top" Foreground="#FFDF691A" FontSize="48"/>
     </Grid>
 </Window>
