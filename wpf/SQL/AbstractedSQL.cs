@@ -9,8 +9,7 @@ namespace wpf
 {
     public abstract class AbstractedSQL
     {
-        private static string connstring = "Server = tcp:webappdb-csi291.database.windows.net,1433;Initial Catalog = model_db; Persist Security Info=False;User ID =webappdb_csi291; Password=GKLq4AqS9NadbUJ9qCbHemkc; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;";
+        private static string connstring = "Server=tcp:invodb.database.windows.net,1433;Initial Catalog = invo-db; Persist Security Info=False;User ID = invoadmin; Password=QWDvuOw0t1rP;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;";
         public string connection { get { return connstring; } }
-
     }
 }

@@ -65,7 +65,7 @@
     <Compile Include="addProducts.xaml.cs">
       <DependentUpon>addProducts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FakeChart.cs" />
+    <Compile Include="Displays\FakeChart.cs" />
     <Compile Include="Products.xaml.cs">
       <DependentUpon>Products.xaml</DependentUpon>
     </Compile>
@@ -134,9 +134,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Displays\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

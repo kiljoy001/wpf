@@ -49,6 +49,14 @@
                 </StackPanel>
             </Button.ToolTip>
         </Button>
+        <Button x:Name="Search_Copy" Content="Reports" Background="#FFDF691A" Foreground="White" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="100" Click="Search_Copy_Click" >
+            <Button.ToolTip>
+                <StackPanel>
+                    <TextBlock><Run Text="Remove A Product"/></TextBlock>
+                    <TextBlock><Run Text="Remove a product from the database"/></TextBlock>
+                </StackPanel>
+            </Button.ToolTip>
+        </Button>
 
     </Grid>
 </Window>

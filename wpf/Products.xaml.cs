@@ -50,5 +50,12 @@ namespace wpf
             }
 
         }
+
+        private void Search_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Reports fake_report = new Reports();
+            fake_report.Show();
+            this.Close();
+        }
     }
 }
