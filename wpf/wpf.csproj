@@ -75,12 +75,18 @@
     <Compile Include="Settings.cs" />
     <Compile Include="SQL\AbstractedSQL.cs" />
     <Compile Include="SQL\checkEmail.cs" />
+    <Compile Include="SQL\checkEmailold.cs" />
     <Compile Include="SQL\disable_product.cs" />
     <Compile Include="SQL\getHash.cs" />
     <Compile Include="SQL\insertProduct.cs" />
     <Compile Include="SQL\insertUser.cs" />
-    <Compile Include="SQL\product.cs" />
+    <Compile Include="SQL\productModel.cs" />
+    <Compile Include="SQL\productType.cs" />
     <Compile Include="SQL\showProducts.cs" />
+    <Compile Include="SQL\SqlExtensions.cs" />
+    <Compile Include="testWindow.xaml.cs">
+      <DependentUpon>testWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="addProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +108,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Reports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="testWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

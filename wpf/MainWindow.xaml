@@ -27,5 +27,6 @@
             </Button.ToolTip>
         </Button>
         <Label Content="INVO" HorizontalAlignment="Left" Margin="205,10,0,0" VerticalAlignment="Top" Foreground="#FFDF691A" FontSize="48"/>
+        <Button Content="Test" HorizontalAlignment="Left" Margin="430,287,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
     </Grid>
 </Window>

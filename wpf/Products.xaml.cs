@@ -8,21 +8,21 @@ namespace wpf
     /// </summary>
     public partial class Products : Window
     {
-        showProducts get_data = new showProducts();
+        //showProducts get_data = new showProducts();
         public Products()
         {
             InitializeComponent();
-            
-            if (get_data.result != null)
-            {
-                foreach(product item in get_data.result)
-                { //check to make sure that the value is not false
-                    if (item.Show_Item)
-                    {
-                        listView.Items.Add(new product { Product_name = item.Product_name, Number = item.Number, Amount = item.Amount });
-                    }
-                }
-            }
+            listView.Items.Add(new productModel { Product_name = "Test Product", Number = 350, Amount = 1.25M});
+            //if (get_data.result != null)
+            //{
+            //    foreach(product item in get_data.result)
+            //    { //check to make sure that the value is not false
+            //        if (item.Show_Item)
+            //        {
+            //            listView.Items.Add(new product { Product_name = item.Product_name, Number = item.Number, Amount = item.Amount });
+            //        }
+            //    }
+            //}
         }
 
         private void addProduct_Click(object sender, RoutedEventArgs e)
@@ -34,20 +34,20 @@ namespace wpf
 
         private void removeProduct_Click(object sender, RoutedEventArgs e)
         {
-            int index = listView.SelectedIndex;
-            product selected = get_data.result[index];
-            if (selected != null)
-            {
-                disable_product remove = new disable_product(selected.ID, Properties.Settings.Default.user_login);
-                listView.Items.Clear();
-                foreach (product item in get_data.result)
-                { //check to make sure that the value is not false
-                    if (item.Show_Item)
-                    {
-                        listView.Items.Add(new product { Product_name = item.Product_name, Number = item.Number, Amount = item.Amount });
-                    }
-                }
-            }
+            //int index = listView.SelectedIndex;
+            //product selected = get_data.result[index];
+            //if (selected != null)
+            //{
+            //    disable_product remove = new disable_product(selected.ID, Properties.Settings.Default.user_login);
+            //    listView.Items.Clear();
+            //    foreach (product item in get_data.result)
+            //    { //check to make sure that the value is not false
+            //        if (item.Show_Item)
+            //        {
+            //            listView.Items.Add(new product { Product_name = item.Product_name, Number = item.Number, Amount = item.Amount });
+            //        }
+            //    }
+            //}
 
         }
 

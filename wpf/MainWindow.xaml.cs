@@ -44,7 +44,8 @@ namespace wpf
                     
                     if(BCrypt.Net.BCrypt.Verify(password_text,hpass.hashValue))
                     {
-                        Application.Current.Dispatcher.Invoke((Action)delegate {
+                        Application.Current.Dispatcher.Invoke(delegate
+                        {
 
                             //your code
                             Products window_product = new Products();
@@ -83,6 +84,13 @@ namespace wpf
             //    }
             //}
             //else { MessageBox.Show($"Login is incorrect. Please try again!"); }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            testWindow test = new testWindow();
+            test.Show();
+            this.Close();
         }
     }
 }

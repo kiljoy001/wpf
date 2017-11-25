@@ -11,7 +11,7 @@ namespace wpf
     public class getHash : AbstractedSQL
     {
         string hash = null;
-        string selectPwd = "SELECT user_password from site_login where user_login like @login";
+        string selectPwd = "SELECT user_password from site_login where user_login = @login;";
         public getHash(string email)
         {
             using (SqlConnection dbConnect = new SqlConnection())

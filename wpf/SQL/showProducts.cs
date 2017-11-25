@@ -12,7 +12,7 @@ namespace wpf.SQL
 {
     class showProducts : AbstractedSQL
     {
-        private List<product> products_fetch = new List<product>();
+        private List<productModel> products_fetch = new List<productModel>();
 
         public showProducts()
         {
@@ -35,7 +35,7 @@ namespace wpf.SQL
                               
                             while(return_value.Read())
                             {
-                                product temp = new product();
+                                productModel temp = new productModel();
                                 temp.Product_name = return_value["product_name"].ToString();
                                 temp.Number = (int)return_value["product_units"];
                                 temp.Amount = decimal.Parse(return_value["product_price"].ToString());
@@ -56,7 +56,7 @@ namespace wpf.SQL
                 }
             }
         }
-                public List<product> result { get { return products_fetch; } }
+                public List<productModel> result { get { return products_fetch; } }
         }
     }
 

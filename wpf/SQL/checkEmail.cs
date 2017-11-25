@@ -12,38 +12,52 @@ namespace wpf.SQL
     class checkEmail : AbstractedSQL
     {
         string email_value = null;
-        string selectEmail = "SELECT user_login from site_login where user_login like @login";
+        string selectEmail = "SELECT [user_login] from [dbo].[site_login] where [user_login] = @login;";
         public checkEmail(string email)
         {
-            using (SqlConnection dbConnect = new SqlConnection())
+            using (SqlConnection dbConnect = new SqlConnection(this.connection))
             {
-                dbConnect.ConnectionString = connection;
-                SqlCommand verify = new SqlCommand(selectEmail);
-                try
+                if(dbConnect.IsAvaliable())
                 {
-                    dbConnect.Open();
-                    verify.Connection = dbConnect;
-                    verify.CommandType = CommandType.Text;
-                    verify.Parameters.AddWithValue("@login", email);
-                    SqlDataReader return_value = verify.ExecuteReader();
-                    if(return_value.HasRows)
+                    try
                     {
-                        while (return_value.Read()) {email_value = return_value.GetString(0); }
+                        dbConnect.Open();
+                        using (SqlCommand verify = new SqlCommand(selectEmail, dbConnect))
+                        {
+                            //SqlParameter variable = new SqlParameter
+                            //{
+                            //    ParameterName = "@login",
+                            //    Value = email
+                            //};
+                            verify.Parameters.Add("@login", SqlDbType.NChar).Value = email;
+                            using (SqlDataReader reader = verify.ExecuteReader())
+                            {
+                                if(reader.HasRows)
+                                {
+                                    while (reader.Read())
+                                    {
+                                        email_value = (string)reader["user_login"];
+                                    }
+                                }                             
+                            }
+                        }
+                    }
+                    catch (SqlException se)
+                    {
+                        MessageBox.Show($"Error: {se.ToString()}", $"An SQL related error has occured.");
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show($"Error: {e.ToString()}\n{e.GetType()}", $"An {e.GetType()} error has occured.");
                     }
                 }
-                catch (SqlException se)
-                {
-                    MessageBox.Show($"Error: {se.ToString()}", $"An SQL related error has occured.");
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show($"Error: {e.ToString()}\n{e.GetType()}", $"An {e.GetType()} error has occured.");
-                }
+                
+               
             }
         }
         public bool check_if_correct(string email)
         {
-            if(email_value == email) { return true; }
+            if (email_value.ToLower().Trim() == email.ToLower().Trim()) { return true; }
             else { return false; }         
         }
     }
